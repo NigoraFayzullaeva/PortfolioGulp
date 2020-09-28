@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+@import
+    'mixin/mixin',
+    'content/fonts',
+    'content/open-btn',
+    'content/menu',
+    'content/header',
+    'content/about',
+    'content/work',
+    'content/form-contact',
+    'content/portfolio-index',
+    'content/portfolio-single',
+    'content/footer';

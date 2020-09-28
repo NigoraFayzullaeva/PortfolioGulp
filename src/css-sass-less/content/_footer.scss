@@ -1,0 +1,25 @@
+.footer{
+    @extend .about;
+    &_content{
+        @extend .about;
+        padding: 50px 0;
+        @include flex(flex, column, null, center);
+        &-social{
+            @include flex(flex);
+            a{
+                padding: 0px 10px;
+                border-right: 1px solid $darck;
+                @include text($darck, 20px);
+                margin: 20px 0;
+                @include flex(flex);
+            }
+            li:last-child a{
+                border-right: 0;
+            }
+        }
+        &-text{
+            @include text($darck, 13px, $f500, null, 500);
+            opacity: 0.8s;
+        }
+    }
+}

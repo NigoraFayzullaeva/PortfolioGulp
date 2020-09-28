@@ -1,0 +1,38 @@
+.open{
+    @include WH(100%);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    padding: 20px;
+    z-index: 1;
+    background: transparent;
+    transition: all 0.5s;
+    &.scroll{
+        background: $darck;
+    }
+    &_btn-menu{
+        @include WH(55px, 33px);
+        background: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        span{
+            @include WH(100%, 5px);
+            position: relative;
+            @include flex(flex, $JccAic, $JccAic);
+            background: $red;
+            &::before, &::after{
+                @include WH(100%, 5px);
+                position: absolute;
+                content: '';
+                background: $red;
+            }
+            &::before{
+                top: -14px;
+            }
+            &::after{
+                bottom: -14px;
+            }
+        }
+    }
+}

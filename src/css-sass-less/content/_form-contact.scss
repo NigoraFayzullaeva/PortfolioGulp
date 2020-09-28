@@ -1,0 +1,96 @@
+.contact{
+    @extend .about;
+    &_content{
+        @extend .about_content;
+        @include media(768px){
+            flex-wrap: wrap;
+        }
+        &-form{
+            @include WH(50%);
+            @include media(768px){
+                @include WH(100%);
+            }
+            h4{
+                @include text($darck, 22px, $f500, null, 500);
+                line-height: 17px;
+                margin-bottom: 27px;
+            }
+            .form{
+                @extend .about;
+                @include flex(flex, null, $jcsb);
+                @include media(992px){
+                    flex-direction: column;
+                }
+                &_input{
+                    @extend .contact_content-form;
+                    @include flex(flex, column, null, $fe);
+                    @include media(992px){
+                        @include WH(100%);
+                        padding: 0;
+                    }
+                    padding-right: 10px;
+                    input{
+                        @include WH(100%, 35px);
+                        border: 1px solid $darck;
+                        outline: none;
+                        margin-bottom: 20px;
+                        @include text($darck, 14px, $f500, italic, 500);
+                        padding-left: 12px;
+                    }
+                }
+                &_text{
+                    @extend .form_input;
+                    padding-left: 10px;
+                    padding-right: 0;
+                    textarea{
+                        @include WH(100%, 146px);
+                        border: 1px solid $darck;
+                        outline: none;
+                        margin-bottom: 20px;
+                        @include text($darck, 14px, $f500, italic, 500);
+                        padding: 8px 0 0 12px;
+                    }
+                    &-btn{
+                        @extend .header_text-btn;
+                        padding: 11px 18px;
+                        @include text(null, 16px,);
+                        margin: 0;
+                        border: none;
+                        outline: none;
+                        cursor: pointer;
+                        border-radius: 0;
+                    }
+                }
+            }
+        }
+        &-info{
+            @include WH(40%);
+            @include media(768px){
+                @include WH(100%);
+            }
+            .info{
+                @extend .about;
+                @include flex(flex, null, null, $JccAic);
+                margin: 20px 0;
+                &_icon{
+                    @include text($darck, 40px);
+                    margin-right: 50px;
+                    @include WH(60px, 60px);
+                }
+                &_text{
+                    @include WH(100%);
+                    h4{
+                        @include text($darck, 22px, $f500, null, 500);
+                        line-height: 17px;
+                        margin-bottom: 20px;
+                    }
+                    a{
+                        @include text($darck, 16px, $f500, null, 500);
+                        opacity: 0.8;
+
+                    }
+                }
+            }
+        }
+    }
+}

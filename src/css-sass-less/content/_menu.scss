@@ -1,0 +1,83 @@
+html{
+    &::-webkit-scrollbar{
+        width: 5px;
+        background: $darck;
+    }
+    &::-webkit-scrollbar-thumb{
+        background: $red;
+        border-radius: 10px;
+    }
+}
+
+.menu{
+    @include WH(20%, 100vh, null);
+    background: $bg-darck;
+    position: fixed;
+    z-index: 20;
+    transition: transform 0.5s;
+    transform:  translateX(-100%);
+    overflow-y: scroll;
+    &::-webkit-scrollbar{
+        width: 0;
+    }
+    @include media(992px){
+        width: 50%;
+    }
+    @include media(768px){
+        width: 100%;
+    }
+    &.active{
+        transform:  translateX(0%); 
+    }  
+    &_user{
+        @include WH(100%, 230px,);
+        position: relative;
+        @include media(768px){
+            @include WH(null, 50%);
+        }
+        img{
+            @include WH(100%, 100%,);
+            display: flex;
+            object-fit: cover;
+        }
+        &-text{
+            @include WH(100%);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 15px 30px;
+            @include text($fff, null, $f500, 500,);
+            h4{
+                @include text($fff, 32px, $f500, 500,);
+            }
+            p{
+                @include text($fff, 16px);
+            }
+        }
+    }
+    &_btn{
+        @include text($red, 30px);
+        position: absolute;
+        z-index: 1;
+        top: 20px;
+        left: 30px;
+        background: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        text-shadow: 0 0 3px #000;
+    }
+    &_list{
+        @include WH(100%);
+        ul{
+            @extend .menu_list;
+            a{
+                @extend .menu_list;
+                padding: 21px 30px;
+                @include flex(flex);
+                @include text($fff, 22px, $f500, 500);
+                border-bottom: 2px solid #282835;
+            }
+        }
+    }
+}

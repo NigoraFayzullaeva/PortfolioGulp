@@ -1,0 +1,40 @@
+body{
+    overflow-x: hidden;
+}
+.container{
+    @include WH(1140px, null, max-);
+    @include WH(90%);
+    margin: auto;
+}
+
+.header{
+    @include WH(100%, 100vh);
+    background: url('../images/header.png');
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    @include flex(flex, null, $JccAic, $JccAic);
+    
+    &_text{
+        @include WH(750px, null, max-);
+        text-align: center;
+        h1{
+            @include text($fff, 48px, $f600, 600);
+            margin-bottom: 25px;
+        }
+        p{
+            @include text($fff, 14px, $f500, 500);
+            padding: 0 15%;
+            line-height: 30px;
+        }
+        &-btn{
+            padding: 17px 44px;
+            @include text($fff, 22px, $f500, 500);
+            line-height: 16px;
+            background: $red;
+            margin: 52px 0;
+            @include flex(inline-flex);
+            border-radius: 5px;
+        }
+    }
+}

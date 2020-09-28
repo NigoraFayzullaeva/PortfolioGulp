@@ -1,0 +1,201 @@
+.posts{
+    @extend .about;
+    &_content{
+        @extend .about;
+        padding: 80px 0;
+        border-bottom: 1px solid #e5e5e5;
+        &-news{
+            @extend .posts;
+            position: relative;
+            margin: 40px 0;
+            @include flex(flex, column, null, $JccAic, wrap);
+            @include media(576px){
+                @include WH(null, 250px);
+            }
+            &::before{
+                @include WH(2px, 100%);
+                background: $darck;
+                position: absolute;
+                content: '';
+                left: auto;
+                top: 0;
+                @include media(992px){
+                    left: 5%;
+                }
+            }
+        }
+    }
+    &_item{
+        @include WH(50%, 116px, null, min-);
+        border: 0px solid black;
+        position: relative;
+        align-self: flex-end;
+        @include flex(flex);
+        @include media(992px){
+            @include WH(95%);
+        }
+        @include media(576px){
+            margin: 10px 0 !important;
+            padding: 0 !important;
+            @include WH(100%, 250px);
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: all 1s;
+            &.active{
+                opacity: 1;
+            }
+        }
+        &::before{
+            position: absolute;
+            content: '';
+            @include WH(34px, 34px);
+            border: 2px solid black;
+            background: white;
+            border-radius: 50%;
+            // top: -2px;
+            // left: -17px;
+            box-sizing: border-box;
+        }
+        &::after{
+            position: absolute;
+            content: '';
+            @include WH(15px, 15px);
+            border: 2px solid black;
+            background: $red;
+            border-radius: 50%;
+            // left: -7.2px;
+            // top: 7.2px;
+            box-sizing: border-box;
+        }
+        &:nth-of-type(2n + 2){
+            align-self: flex-start;
+            margin-bottom: 70px;
+            margin-top: -50px;
+            padding-right: 50px;
+            @include media(992px){
+                align-self:  flex-end;
+                margin-top: 40px;
+                padding-left: 50px;
+                padding-right: 0;
+            }
+            &::before{
+                bottom: -2px;
+                right: -17px;
+                @include media(992px){
+                    top: -2px;
+                    left: -17px;
+                }
+            }
+            &::after{
+                bottom: 7.2px;
+                right: -7.2px;
+                @include media(992px){
+                    top: 7.2px;
+                    left: -7.2px;
+                }
+            }
+            .posts_item-text::before{
+                transform: rotate(175deg);
+                right: -25px;
+                bottom: 18px;
+                @include media(992px){
+                    transform: rotate(-5deg);
+                    top: 18px;
+                    left: -25px;
+                }
+            }
+            &:last-child{
+                margin-bottom: 0;
+                @include media(992px){
+                    margin-bottom: -100px;
+                }
+            }
+        }
+        &:nth-of-type(2n + 1){
+            align-self: flex-end;
+            padding-left: 50px;
+            &::before{
+                top: -2px;
+                left: -17px;
+            }
+            &::after{
+                left: -7.2px;
+                top: 7.2px;
+            }
+            .posts_item-text::before{
+                transform: rotate(-5deg);
+                left: -25px;
+                top: 18px;
+            }
+            &:last-child{
+                margin-bottom: -100px;
+            }
+        }
+        
+        &-text{
+            @include WH(100%, 100%);
+            background: $darck;
+            border-radius: 10px;
+            position: relative;
+            padding: 21px;
+            .post_slogan{   
+                @include text($fff, 22px, $f500, null, 500);
+                margin-right: 25px;
+            }
+            .tags{
+                @include text($fff, 20px, $f500, null, 500);
+                opacity: 0.8;
+            }
+            .date{
+                @include text($red, 18px, $f400, null, 400);
+                margin: 5px 0;
+            }
+            p{
+                @include text($fff, 16px, $f400, null, 400);
+                line-height: 28px;
+            }
+            &::before{
+                @include WH(0, 0,);
+                position: absolute;
+                content: '';
+                border-top: 23px solid $darck;
+                border-left: 27px solid transparent;
+                border-bottom: 0px solid transparent;
+                border-right: 0px solid transparent;
+            }
+        }
+    }
+    &_btn{
+        @include WH(100%);
+        @include flex(none, null, center);
+        @include media(576px){
+            display: flex;
+        }
+        &-left,
+        &-right{
+            @include WH(50px, 50px);
+            background: $red;
+            border: 2px solid $darck;
+            outline: none;
+            cursor: pointer;
+            margin: 0 10px;
+            border-radius: 10px;
+            @include text($darck, 25px);
+            transition: all 0.5s;
+            &:hover{
+                border-radius: 50%;
+            }
+        }
+    }
+}
+
+.posts::before,
+.posts_item-text::before,
+.posts_item:before,
+.posts_item::after{
+    @include media(576px){
+        display: none;
+    }
+}
